@@ -82,4 +82,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/wwwroot/xuelfshiwang/static_file/static'
+# STATIC_ROOT = '/home/wwwroot/xuelfshiwang/static_file/static'
+BOOTSTRAP3 = {
+    'jquery_url': '//cdn.bootcss.com/jquery/1.11.1/jquery.min.js',
+    'base_url': '//cdn.bootcss.com/bootstrap/3.3.0/',
+
+}
