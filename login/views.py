@@ -1,3 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render_to_response
 
-# Create your views here.
+def hello(request):
+	name='hello'
+	return render_to_response('login/base.html',{'name':name})
