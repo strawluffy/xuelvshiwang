@@ -1,5 +1,5 @@
 """
-Django settings for xuelfshiwang project.
+Django settings for xuelvshiwang project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -49,9 +49,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'xuelfshiwang.urls'
+ROOT_URLCONF = 'xuelvshiwang.urls'
 
-WSGI_APPLICATION = 'xuelfshiwang.wsgi.application'
+WSGI_APPLICATION = 'xuelvshiwang.wsgi.application'
 
 
 # Database
