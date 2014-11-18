@@ -1,19 +1,31 @@
+{% load staticfiles %}
 {% load bootstrap3 %}
 <!DOCTYPE html>
-<html>
+<html lang="zh_cn">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-	<title>添加动画标注点</title>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="{% static "css/flipclock.css" %}">
 	{% bootstrap_css %}
+	<script src="{% static "js/jquery-1.11.1.min.js" %} "></script>
 	{% bootstrap_javascript %}
-
-	<style type="text/css">
-		.container {
+	<style>
+		.count_time {
 			width: 100%;
-			margin-top: 100px;
-			padding-left: 0px;
-			padding-right: 0px;
+			height: 500px;
+			background: radial-gradient(ellipse at center, rgba(150, 150, 150, 1) 0%, rgba(89, 89, 89, 1) 100%);
+			margin-top: 0px;
+		}
+		.center_time {
+			position: relative;
+			padding-top: 100px;
+		}
+		body {
+			-webkit-user-select:none;
+			text-shadow:0 1px 0 rgba(0, 0, 0, .3);
+		}
+		h1 {
+			color: white;
 		}
 		.ditu {
 			height: 400px;
@@ -26,21 +38,109 @@
 			margin:0;
 			font-family:"微软雅黑";
 		}
-		.BMapLabel {
-			color: black;
+		.center_timu, .center_zongjie {
+			height: 300px;
 		}
-		element.style{
-			border: 20px solid rgb(255, 0, 0);
+		.center_timu > h1, .center_zongjie> h1 {
+			font-size: 50px;
+			color: gray;
+			text-align: center;
+			padding-top: 100px;
+		}
+		.footer {
+			height: 400px;
+			background: radial-gradient(ellipse at center, rgba(150, 150, 150, 1) 0%, rgba(89, 89, 89, 1) 100%);
+		}
+		.lianxi {
+			padding-top: 50px;
+			color: white;
+			font-size: 17px;
+		}
+		#img {
+			text-align: center;
+		}
+		#dizhi {
+			margin-top: 35px;
 		}
 	</style>
+	<script src="{% static "js/flipclock.min.js" %}"></script>
 </head>
 <body>
-	<div class="container">
+	<div class="count_time">
+		<div class="center_time">
+			<div class="row">
+				<div class="col-md-5 col-md-offset-1">
+					<h1>我们的网站还需要</h1>
+				</div>
+				<div class="col-md-8 col-md-offset-3">
+					<div class="clock" style="margin:2em;"></div>
+				</div>
+				<div class="col-md-3 col-md-offset-8">
+					<h1>就可以和大家见面了.</h1>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	<div class="center_timu">
+		<h1>当然你也可以在下面的地图上找到我们的家!</h1>
+	</div>
+	<div class="center_ditu">
 		<div class="ditu">
 			<div id="allmap"></div>
 		</div>
 	</div>
-	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"></script>
+	<div class="center_zongjie">
+		<h1>河北正昊律师事务所期待您的光临！</h1>
+	</div>
+	<div class="footer">
+		<div class="row">
+			<div class="lianxi">
+				<div class="col-md-4 col-md-offset-2" id='dizhi'>
+					<address>
+						<h3>
+							<strong>河北正昊律师事务所</strong><br>
+						</h3>
+						<br>
+						河北省香河县新华大街民族饭店东侧<br>
+						昌丰烟酒二层<br>
+						<abbr title="电话">P:</abbr> (0316) 8582426
+					</address>
+					<address>
+						<strong>邮件地址:</strong><br>
+						<a href="mailto:#">xls@xuels.com</a>
+					</address>
+				</div>
+				<div class="col-md-2" id='weixin'>
+					<h3 style='text-align:center'>微信</h3>
+					<div id="img">
+						<img src="{% static "images/text.png" %}" style="width:200px;" alt="">	
+					</div>
+				</div>
+				<div class="col-md-2" id="weibo">
+					<h3 style='text-align:center'>微博</h3>
+					<div id="img">
+						<img src="{% static "images/text.png" %}" style="width:200px;" alt="">	
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var huh = new Date(Date.UTC(2015,09,17,5,15,0));
+		var duh = new Date();
+		var wha = huh.getTime()/1000 - duh.getTime()/1000;
+		var clock = $('.clock').FlipClock(wha,{
+			clockFace: 'DailyCounter',
+			countdown: true
+		});
+
+	</script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"></script>
 	<script type="text/javascript">
 		// 百度地图API功能
 		var map = new BMap.Map("allmap");
