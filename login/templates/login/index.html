@@ -108,8 +108,7 @@
 						<abbr title="电话">P:</abbr> (0316) 8582426
 					</address>
 					<address>
-						<strong>邮件地址:</strong><br>
-						<a href="mailto:#">xls@xuels.com</a>
+						<strong>邮件地址:</strong><a href="mailto:#">xls@xuels.com</a>
 					</address>
 				</div>
 				<div class="col-md-2" id='weixin'>
@@ -131,10 +130,10 @@
 	</div>
 
 	<script type="text/javascript">
-		var huh = new Date(Date.UTC(2015,09,17,5,15,0));
+		var huh = new Date(2014,11,19);
 		var duh = new Date();
 		var wha = huh.getTime()/1000 - duh.getTime()/1000;
-		var clock = $('.clock').FlipClock(wha,{
+		var clock = $('.clock').FlipClock(3600*24*10,{
 			clockFace: 'DailyCounter',
 			countdown: true
 		});
