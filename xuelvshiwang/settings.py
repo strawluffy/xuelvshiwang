@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
+SITE_ROOT=os.path.join(os.path.abspath(os.path.dirname(__file__)),'..')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -83,6 +83,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 # STATIC_ROOT = '/home/wwwroot/xuelfshiwang/static_file/static'
+STATIC_ROOT = os.path.join(SITE_ROOT,'static_file','static')
+STATICFILES_DIRS = (
+    ("css", os.path.join(STATIC_ROOT,'css')),
+    ("js", os.path.join(STATIC_ROOT,'js')),
+    ("images", os.path.join(STATIC_ROOT,'images')),
+)
 BOOTSTRAP3 = {
     'jquery_url': '//cdn.bootcss.com/jquery/1.11.1/jquery.min.js',
     'base_url': '//cdn.bootcss.com/bootstrap/3.3.0/',
