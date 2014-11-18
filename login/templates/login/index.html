@@ -1,41 +1,81 @@
+{% load bootstrap3 %}
 <!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-	<style type="text/css">
-	body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
-	</style>
-	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"></script>
 	<title>添加动画标注点</title>
-	<style>
-		#container {
-			display: block;
-			width: 1300px;
-			height: 500px;
+	{% bootstrap_css %}
+	{% bootstrap_javascript %}
+
+	<style type="text/css">
+		.container {
+			width: 100%;
+			margin-top: 100px;
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+		.ditu {
+			height: 400px;
+			width: 100%;
+		}
+		#allmap {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			margin:0;
+			font-family:"微软雅黑";
+		}
+		.BMapLabel {
+			color: black;
+		}
+		element.style{
+			border: 20px solid rgb(255, 0, 0);
 		}
 	</style>
 </head>
 <body>
-	<div id="container">
-		<div id="allmap"></div>
+	<div class="container">
+		<div class="ditu">
+			<div id="allmap"></div>
+		</div>
 	</div>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"></script>
+	<script type="text/javascript">
+		// 百度地图API功能
+		var map = new BMap.Map("allmap");
+		var point = new BMap.Point(117.015417, 39.77104);
+		map.centerAndZoom(point, 35);
+		var marker = new BMap.Marker(point);  // 创建标注
+		map.addOverlay(marker);               // 将标注添加到地图中
+		// marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+		var label = new BMap.Label("河北正昊律师事务所",{offset:new BMap.Size(-36,27)});
+		marker.setLabel(label);
+		var opts = {
+ 	width : 300,     // 信息窗口宽度
+ 	height: 100,     // 信息窗口高度
+ 	title : "河北正昊律师事务所",  // 信息窗口标题
+	enableMessage:true,//设置允许信息窗发送短息
+	message:"河北省香河县新华大街民族饭店东侧（昌丰烟酒二层）"
+}
+var infoWindow = new BMap.InfoWindow("地址：河北省香河县新华大街民族饭店东侧二层 电话：0316-8582426", opts);  // 创建信息窗口对象
+map.openInfoWindow(infoWindow, map.getCenter());      // 打开信息窗口
+
+	marker.addEventListener("click", function(){          
+		map.openInfoWindow(infoWindow,point); //开启信息窗口
+	});
+
+
+
+
+
+		map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
+		map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
+		map.addControl(new BMap.NavigationControl());        // 添加平移缩放控件
+		map.addControl(new BMap.ScaleControl());             // 添加比例尺控件
+		map.addControl(new BMap.OverviewMapControl());       //添加缩略地图控件
+		map.enableScrollWheelZoom();                         //启用滚轮放大缩小
+		map.disable3DBuilding();
+	</script>
 </body>
 </html>
-<script type="text/javascript">
-	// 百度地图API功能
-	var map = new BMap.Map("allmap");
-	var point = new BMap.Point(117.015537, 39.77124);
-	map.centerAndZoom(point, 35);
-	var marker = new BMap.Marker(point);  // 创建标注
-	map.addOverlay(marker);               // 将标注添加到地图中
-	marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
-		var opts = {
-		position : point,    // 指定文本标注所在的地理位置
-		offset   : new BMap.Size(20, -20)    //设置文本偏移量
-	}
-	var label = new BMap.Label("河北正昊律师事务所",{offset:new BMap.Size(-36,27)});
-	marker.setLabel(label);
-	map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
-	map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
-</script>
