@@ -25,7 +25,7 @@
 <script type="text/javascript">
 	// 百度地图API功能
 	var map = new BMap.Map("allmap");
-	var point = new BMap.Point(117.015537, 39.77116);
+	var point = new BMap.Point(117.015537, 39.77124);
 	map.centerAndZoom(point, 35);
 	var marker = new BMap.Marker(point);  // 创建标注
 	map.addOverlay(marker);               // 将标注添加到地图中
@@ -34,17 +34,8 @@
 		position : point,    // 指定文本标注所在的地理位置
 		offset   : new BMap.Size(20, -20)    //设置文本偏移量
 	}
-	// var label = new BMap.Label("河北正昊律师事务所", opts);  // 创建文本标注对象
-	// 	label.setStyle({
-	// 		color : "red",
-	// 		fontSize : "12px",
-	// 		height : "20px",
-	// 		lineHeight : "20px",
-	// 		fontFamily:"微软雅黑"
-	// 	});
-	var label = new BMap.Label("河北正昊律师事务所",{offset:new BMap.Size(-36,18)});
+	var label = new BMap.Label("河北正昊律师事务所",{offset:new BMap.Size(-36,27)});
 	marker.setLabel(label);
-	// map.addOverlay(label);
 	map.enableScrollWheelZoom();   //启用滚轮放大缩小，默认禁用
 	map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
 </script>
