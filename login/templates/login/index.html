@@ -4,16 +4,21 @@
 <html lang="zh_cn">
 <head>
 	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<title>Document</title>
 	<link rel="stylesheet" href="{% static "css/flipclock.css" %}">
 	{% bootstrap_css %}
 	<script src="{% static "js/jquery-1.11.1.min.js" %} "></script>
 	{% bootstrap_javascript %}
+
 	<style>
 		.count_time {
 			width: 100%;
 			height: 500px;
-			background: radial-gradient(ellipse at center, rgba(150, 150, 150, 1) 0%, rgba(89, 89, 89, 1) 100%);
+			/*background: radial-gradient(ellipse at center, rgba(150, 150, 150, 1) 0%, rgba(89, 89, 89, 1) 100%);*/
+			background-color: #666;
 			margin-top: 0px;
 		}
 		.center_time {
@@ -21,9 +26,12 @@
 			padding-top: 100px;
 		}
 		body {
+			margin: 0;
+			padding: 0;
 			-webkit-user-select:none;
 			text-shadow:0 1px 0 rgba(0, 0, 0, .3);
 			font-family:"微软雅黑";
+			overflow-x:hidden;
 		}
 		h1 {
 			color: white;
@@ -50,7 +58,8 @@
 		}
 		.footer {
 			height: 400px;
-			background: radial-gradient(ellipse at center, rgba(150, 150, 150, 1) 0%, rgba(89, 89, 89, 1) 100%);
+			/*background: radial-gradient(ellipse at center, rgba(150, 150, 150, 1) 0%, rgba(89, 89, 89, 1) 100%);*/
+			background-color: #666;
 		}
 		.lianxi {
 			padding-top: 50px;
@@ -64,6 +73,9 @@
 			margin-top: 35px;
 
 		}
+		.row {
+			margin: 0px;
+		}
 	</style>
 	<script src="{% static "js/flipclock.min.js" %}"></script>
 </head>
@@ -74,11 +86,17 @@
 				<div class="col-md-8 col-md-offset-1">
 					<h1><strong style='font-size:70px;color:#428bca;'>薛律师</strong> 网在</h1>
 				</div>
-				<div class="col-md-5 col-md-offset-3">
+
+
+			</div>
+			<div class="row">
+				<div class="col-md-11  col-md-offset-1 col-lg-9 col-lg-offset-3">
 					<div class="clock" style="margin:2em;"></div>
 				</div>
-				<div class="col-md-3" style="margin-top:40px;">
-					<h1>之后就要面世啦！！</h1>
+			</div>
+			<div class="row">
+				<div class="col-md-3 col-md-offset-8" style="margin-top:40px;">
+					<h1>后上线！！</h1>
 				</div>
 			</div>
 
@@ -112,13 +130,13 @@
 						<strong>邮件地址:</strong><a href="mailto:#"e>xls@xuels.com</a>
 					</address>
 				</div>
-				<div class="col-md-2" id='weixin'>
+				<div class="col-md-2 col-xl-3" id='weixin'>
 					<h3 style='text-align:center'>微信</h3>
 					<div id="img">
 						<img src="{% static "images/text.png" %}" style="width:200px;border-radius: 5px;" alt="">	
 					</div>
 				</div>
-				<div class="col-md-2" id="weibo">
+				<div class="col-md-2 col-xl-3" id="weibo">
 					<h3 style='text-align:center'>微博</h3>
 					<div id="img">
 						<img src="{% static "images/text.png" %}" style="width:200px;border-radius: 5px;" alt="">	
@@ -129,19 +147,22 @@
 			</div>
 		</div>
 	</div>
-
+	<script>
+		var window_width = $(window).width();
+		if ( window_width < 1000 ) {
+			document.getElementById("weixin").style.display="none";
+			document.getElementById("weibo").style.display="none";
+			// alert(window_width)
+	};
+	</script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"></script>
 	<script type="text/javascript">
-		// var huh = new Date(2014,11,1);
-		// var duh = new Date();
-		// var wha = huh.getTime()/1000 - duh.getTime()/1000;
+
+
 		var clock = $('.clock').FlipClock({{delta}},{
 			clockFace: 'DailyCounter',
 			countdown: true
 		});
-
-	</script>
-	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=您的密钥"></script>
-	<script type="text/javascript">
 		// 百度地图API功能
 		var map = new BMap.Map("allmap");
 		var point = new BMap.Point(117.015417, 39.77104);
@@ -176,6 +197,7 @@ map.openInfoWindow(infoWindow, map.getCenter());      // 打开信息窗口
 		map.addControl(new BMap.OverviewMapControl());       //添加缩略地图控件
 		map.enableScrollWheelZoom();                         //启用滚轮放大缩小
 		map.disable3DBuilding();
+
 	</script>
 </body>
 </html>
