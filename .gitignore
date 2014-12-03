@@ -55,3 +55,6 @@ target/
 # database
 
 db.sqlite3
+#scripts
+sync_to_github.sh
+my_expect
