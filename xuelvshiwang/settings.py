@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'bootstrap3',
     'login',
+    'github_hook',
 )
 
 MIDDLEWARE_CLASSES = (

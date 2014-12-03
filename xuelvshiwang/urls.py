@@ -10,5 +10,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^hello/$', 'login.views.hello'),
+    url(r'^hook/', include('github_hook.urls')),
     url(r'^$', 'login.views.index'),
 )
