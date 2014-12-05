@@ -20,11 +20,11 @@ SITE_ROOT=os.path.join(os.path.abspath(os.path.dirname(__file__)),'..')
 SECRET_KEY = '9dn1(jdwd7zvm)v)t2*+-hww0q#0sqa9@%^7gjpqj5-i(^xwlk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
