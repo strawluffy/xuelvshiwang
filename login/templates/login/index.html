@@ -112,7 +112,7 @@
 		</div>
 	</div>
 	<div class="center_zongjie">
-		<h1>河北正昊律师事务所期待您的光临！</h1>
+		<h1>河北薛凤元律师事务所期待您的光临！</h1>
 	</div>
 	<div class="footer">
 		<div class="row">
@@ -120,11 +120,11 @@
 				<div class="col-md-4 col-md-offset-2" id='dizhi'>
 					<address>
 						<h3>
-							<strong>河北正昊律师事务所</strong><br>
+							<strong>河北薛凤元律师事务所</strong><br>
 						</h3>
 						<br>
-						河北省香河县新华大街民族饭店东侧<br>
-						<abbr title="电话">P:</abbr> (0316) 8582426
+						河北省香河县新华大街78-2号(县委红绿灯北侧)<br>
+						<abbr title="电话">P:</abbr> (0316) 8080229
 					</address>
 					<address>
 						<strong>邮件地址:</strong><a href="mailto:#"e>xls@xuels.com</a>
@@ -171,16 +171,16 @@
 		var marker = new BMap.Marker(point);  // 创建标注
 		map.addOverlay(marker);               // 将标注添加到地图中
 		// marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
-		var label = new BMap.Label("河北正昊律师事务所",{offset:new BMap.Size(-36,27)});
+		var label = new BMap.Label("河北薛凤元律师事务所",{offset:new BMap.Size(-36,27)});
 		marker.setLabel(label);
 		var opts = {
  	width : 300,     // 信息窗口宽度
  	height: 100,     // 信息窗口高度
- 	title : "河北正昊律师事务所",  // 信息窗口标题
+ 	title : "河北薛凤元律师事务所",  // 信息窗口标题
 	enableMessage:true,//设置允许信息窗发送短息
-	message:"河北省香河县新华大街民族饭店东侧（昌丰烟酒二层）"
+	message:"河北省香河县新华大街78-2号(县委红绿灯北侧)"
 }
-var infoWindow = new BMap.InfoWindow("地址：河北省香河县新华大街民族饭店东侧二层 电话：0316-8582426", opts);  // 创建信息窗口对象
+var infoWindow = new BMap.InfoWindow("地址：河北省香河县新华大街78-2号(县委红绿灯北侧)  电话：0316-8080229", opts);  // 创建信息窗口对象
 map.openInfoWindow(infoWindow, map.getCenter());      // 打开信息窗口
 
 	marker.addEventListener("click", function(){          
